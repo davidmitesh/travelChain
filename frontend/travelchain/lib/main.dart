@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travelchain/screens/loginScreen.dart';
+import 'package:travelchain/screens/signupScreen.dart';
 
 void main() => runApp(TravelChain());
 
@@ -13,7 +14,8 @@ class _TravelChainState extends State<TravelChain> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: TravelChainMainPage(),
-      theme: ThemeData(backgroundColor: Color(0xfffffff5)),
+      theme: ThemeData(backgroundColor: Color(0xfffffff5),
+      primaryColor: Color(0xff073b94)),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -29,8 +31,9 @@ class _TravelChainMainPageState extends State<TravelChainMainPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xfffffff5),
-        body: LoginScreen(),
+        backgroundColor: Theme.of(context).backgroundColor,
+        //  body: LoginScreen(),
+         body: SignupScreen(),
       ),
     );
   }
