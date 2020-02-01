@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/cruzelx/travelChain/issues"
   },
-  "homepage": "https://github.com/cruzelx/travelChain#readme"
+  "homepage": "https://github.com/cruzelx/travelChain#readme",
+  "dependencies": {
+    "ethers": "^4.0.43",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15"
+  }
 }
