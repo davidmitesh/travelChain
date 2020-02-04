@@ -5,7 +5,7 @@ const app=express();
 app.get('/',(req,res)=>{
     res.send('Hey welcome to the platform');
 });
-app.get('./addUser',(req,res)=>{
+app.get('/addUser',(req,res)=>{
     res.send('user is added');
 })
 if (port == null || port == "") {
