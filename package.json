@@ -20,9 +20,10 @@
     "ethers": "^4.0.43",
     "express": "^4.17.1",
     "ipfs-api": "^26.1.2",
-    "lodash": "^4.17.15"
-},
-  "engines":{
-      "node":"10.16.0"
+    "lodash": "^4.17.15",
+    "mongoose": "^5.8.11"
+  },
+  "engines": {
+    "node": "10.16.0"
   }
 }
