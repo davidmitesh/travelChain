@@ -1,5 +1,6 @@
 const express=require('express');
 let port = process.env.PORT;
+<<<<<<< HEAD
 
 var mongoose= require('./server/db/mongoose.js');
 var {User}= require('./server/models/user.js');
@@ -7,6 +8,12 @@ var {Challenge}= require('./server/models/challenge.js');
 var bodyParser= require('body-parser');
 let cors=require('cors');
 //important parameters in order for code to run
+=======
+var mongoose= require('./server/db/mongoose.js');
+var {User}= require('./server/models/user.js');
+const _=require('lodash');
+var bodyParser= require('body-parser');
+>>>>>>> f0a6cf6dc7fc61063383ace56abf1a6e916963ef
 let app=express();
 app.use(bodyParser.json());
 app.use(cors());
@@ -22,6 +29,7 @@ const newUser = new User({ name: req.body.name,gender:req.body.gender, verifier:
 newuser.save().then(() => res.send(newUser));
 });
 
+<<<<<<< HEAD
 //-------------------------------------------------------------------------------------------
 //!!!!!!-----------Creating a new challenge--------------------------------------------
 app.post('/createChallenge',(req,res)=>{
@@ -38,6 +46,15 @@ app.post('/createChallenge',(req,res)=>{
 })
 
 //--------------------------Server configuration codes-------------------------------------
+=======
+app.post('/addUser',(req,res)=>{
+    User.countDocuments({},(err,count)=>{
+        var newComer = new User({ name: req.body.name,uid:count+1,tokens:10,gender:req.body.gender,verifier:req.body.verifier });
+        newComer.save().then(() => res.send("successfully added"));
+    })
+
+});
+>>>>>>> f0a6cf6dc7fc61063383ace56abf1a6e916963ef
 if (port == null || port == "") {
   port = 5000;
 }

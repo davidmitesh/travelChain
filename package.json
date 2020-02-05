@@ -18,7 +18,10 @@
   "homepage": "https://github.com/cruzelx/travelChain#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
+<<<<<<< HEAD
     "cors": "^2.8.5",
+=======
+>>>>>>> f0a6cf6dc7fc61063383ace56abf1a6e916963ef
     "ethers": "^4.0.43",
     "express": "^4.17.1",
     "ipfs-api": "^26.1.2",
