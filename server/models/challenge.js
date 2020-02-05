@@ -4,13 +4,15 @@ const _=require('lodash');
 
 
 
-var userSchema = new mongoose.Schema({
+var challengeSchema = new mongoose.Schema({
 
     name:{
-        type:String,
-
+        type:String
     },
-    uid:{
+    description:{
+        type:String
+    },
+    cid:{//challenge Number
         type:Number
     },
 
@@ -20,53 +22,55 @@ var userSchema = new mongoose.Schema({
     },
 
 
-    tokens:{
+    tokenprice:{
         type:Number,
-        default:0
+        required:true
 
     },
-    gender:{
-        type:String
-    },
-
-
-    joinedChallenges:[{
-        name:{
-            type:String
-        },
-        cnumber:{
+     startdate: {
+         type: Date,
+          default: Date.now
+      },
+      enddate: {
+          type: Date,
+           default: Date.now
+       },
+    joinedUsers:[{
+        uid:{
             type:Number
         }
     }
 ],
-completedChallenges:[{
-    name:{
-        type:String
-    },
-    cnumber:{
+completedUsers:[{
+    uid:{
         type:Number
+    },
+    tokentransfer:{
+        type:Boolean
     }
 }
 ],
-verifier:{
-    type:Boolean
-},
-assignedVideos:[{
+verifiers:[{
+    uid:{
+        type:Number
+    },
+    tokentransfer:{
+        type:Boolean
+    }
+}
+],
+submittedVideos:[{
     vid:{
         type:Number
     },
     vhash:{
         type:String
-    },
-    watched:{
-        type:Boolean,
-        default:false
     }
 }
 ]
 });
 // defining the location as 2d sphere space to have two points in the coordinates.
-userSchema.index({ "loc": "2dsphere" });
+challengeSchema.index({ "loc": "2dsphere" });
 //sending the JSON specified parameters as required
 // userSchema.methods.toJSON=function(){
 //     var user=this;
@@ -74,6 +78,6 @@ userSchema.index({ "loc": "2dsphere" });
 //     return _.pick(userObject,['gender']);
 // }
 //creating a final model out of schema
-var User = mongoose.model( "User", userSchema );
+var Challenge = mongoose.model( "Challenge", challengeSchema );
 
-module.exports={User};
+module.exports={Challenge};
