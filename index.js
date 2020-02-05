@@ -37,16 +37,20 @@ app.post('/addUser',(req,res)=>{
 //-------------------------------------------------------------------------------------------
 //!!!!!!-----------Creating a new challenge--------------------------------------------
 app.post('/createChallenge',(req,res)=>{
-    const newChallenge=new Challenge({
-        name:req.body.name,
-        description:req.body.description,
-        "loc": {
-            "type": "Point",
-            "coordinates": [req.body.long, req.body.lat]
-        },
-        tokenprice:req.body.prize
-    });
-    newChallenge.save().then(()=>res.send(newChallenge));
+    Challenge.countDocuments({},function(err,c){
+        const newChallenge=new Challenge({
+            name:req.body.name,
+            description:req.body.description,
+            "loc": {
+                "type": "Point",
+                "coordinates": [req.body.long, req.body.lat]
+            },
+            cid:c+1,
+            tokenprice:req.body.prize
+        });
+        newChallenge.save().then(()=>res.send(newChallenge));
+    })
+
 })
 
 //--------------------------Server configuration codes-------------------------------------
