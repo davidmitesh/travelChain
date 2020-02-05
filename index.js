@@ -19,7 +19,7 @@ app.get('/',(req,res)=>{
 //!!!!!!!!-----Signing up a new user--------
 app.post('/addUser',(req,res)=>{
 const newUser = new User({ name: req.body.name,gender:req.body.gender, verifier:req.body.verifier});
-newuser.save().then(() => res.send(newUser));
+newUser.save().then(() => res.send(newUser));
 });
 
 //-------------------------------------------------------------------------------------------
