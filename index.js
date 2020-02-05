@@ -18,8 +18,20 @@ app.get('/',(req,res)=>{
 //----------------------------------------------------------------------------------------------
 //!!!!!!!!-----Signing up a new user--------
 app.post('/addUser',(req,res)=>{
-const newUser = new User({ name: req.body.name,gender:req.body.gender, verifier:req.body.verifier});
-newUser.save().then(() => res.send(newUser));
+    User.countDocuments({},function(err,c){
+        const newUser = new User({
+            name: req.body.name,
+            gender:req.body.gender,
+             verifier:req.body.verifier,
+             uid:c+1,
+             "loc": {
+                 "type": "Point",
+                 "coordinates": [req.body.long, req.body.lat]
+             }
+         });
+        newUser.save().then(() => res.send(newUser));
+    })
+
 });
 
 //-------------------------------------------------------------------------------------------
