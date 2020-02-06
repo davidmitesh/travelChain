@@ -37,5 +37,22 @@ loc
 }
 <br>
 
+<h2>Route 4 : To get a particular challenge with full description</h2>
+/challenge     -> Query Get request
+<br>
+<h3>parameters:</h3>
+<br>
+cid<br>
+https://travelchain.herokuapp.com?cid=<value><br>
+  
+<h2>Route 5 : To create a new challenge</h2>
+/joinchallenge     -> Post request
+<br>
+<h3>parameters:</h3>
+<br>
+cid-> Int(Challenge ID)<br>
+uid->Int<br>(User ID)<br>
+
+
 </div>
 
