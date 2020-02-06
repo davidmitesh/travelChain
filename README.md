@@ -1,7 +1,7 @@
 # travelChain
 <div>
-<u>Routes for API</u>
-API home location: https://travelchain.herokuapp.com/
+<u>Routes for API</u><br>
+ home location: https://travelchain.herokuapp.com/
 
 <h2>Route 1 : To signup a new user</h2>
 /addUser     -> Post request
@@ -51,7 +51,7 @@ https://travelchain.herokuapp.com?cid=<value><br>
 <h3>parameters:</h3>
 <br>
 cid-> Int(Challenge ID)<br>
-uid->Int<br>(User ID)<br>
+uid->Int(User ID)<br>
 
 
 </div>
