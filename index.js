@@ -1,16 +1,18 @@
 const express=require('express');
 let port = process.env.PORT;
-
+const _=require('lodash');
 var mongoose= require('./server/db/mongoose.js');
 var {User}= require('./server/models/user.js');
 var {Challenge}= require('./server/models/challenge.js');
 var bodyParser= require('body-parser');
 let cors=require('cors');
-//important parameters in order for code to run
 let app=express();
 app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+
+//--------------------------------------------------------------------------------------
+//!!!!!-------------------------Home route----------------------------------------------
 app.get('/',(req,res)=>{
     res.send('Hey welcome to the platform');
 });
@@ -51,7 +53,46 @@ app.post('/createChallenge',(req,res)=>{
         newChallenge.save().then(()=>res.send(newChallenge));
     })
 
+});
+// ----------------------------------------------------------------------------------------
+// !!!!!!----------Getting all the challenges with challenge id,name and location-------
+app.get('/getChallenges',(req,res)=>{
+    Challenge.find({},function(err,docs){
+        let filter=[];
+        _.map(docs,(doc)=>{
+            filter.push({"cid":doc.cid,"name":doc.name,"loc":doc.loc})
+        })
+        res.send(filter);
+    })
+});
+
+// ----------------------------------------------------------------------------------------
+// !!!!!!------------------Getting a particular  challenge with full description-------
+//Requires query string.for eg-  /challenge?cid=1
+app.get('/challenge',(req,res)=>{
+    Challenge.findOne({cid:req.query.cid},function(err,doc){
+        res.send(doc);
+    })
+});
+
+
+//-----------------------------------------------------------------------------------------
+//!!!!!!---------------------Joining a challenge-------------------------------------------
+app.post('/joinChallenge',(req,res)=>{
+    Challenge.findOneAndUpdate({cid:req.body.cid},{$push:{joinedUsers:{uid:req.body.uid}}},(err,challenge)=>{
+        User.findOneAndUpdate({uid:req.body.uid},{$push:{joinedChallenges:{name:challenge.name,cnumber:challenge.cid}}},(err,user)=>{
+            if (err){
+                res.send('Either challenge not found or user not found')
+            }
+            mergedData={challenge,user}
+            res.send(mergedData);
+        })
+    })
 })
+
+//----------------------------------------------------------------------------------
+//!!!!!!!!-------------------Confirming a video verification by verifier-----------
+
 
 //--------------------------Server configuration codes-------------------------------------
 if (port == null || port == "") {
