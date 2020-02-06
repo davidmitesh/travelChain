@@ -26,7 +26,7 @@ long-> Number<br>
 lat-> Number<br>
 prize-> Number<br>
 
-<h2>Route 3 : To create all the challenges with only id,name and location</h2>
+<h2>Route 3 : To get all the challenges with only id,name and location</h2>
 /getChallenges     -> Get request
 <br>
 <h3>Returns:</h3>
