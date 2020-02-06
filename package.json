@@ -18,16 +18,17 @@
   "homepage": "https://github.com/cruzelx/travelChain#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-
     "cors": "^2.8.5",
-
-
     "ethers": "^4.0.43",
     "express": "^4.17.1",
+    "fs-extra": "^8.1.0",
     "ipfs-api": "^26.1.2",
     "lodash": "^4.17.15",
     "mongoose": "^5.8.11",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "solc": "^0.6.2",
+    "truffle-hdwallet-provider": "0.0.3",
+    "web3": "^1.2.6"
   },
   "engines": {
     "node": "10.16.0"

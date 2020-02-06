@@ -11,6 +11,11 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 
+//------------------------------------IPFS libraries section------------------------------------
+const ipfsAPI = require('ipfs-api');
+const ipfs = new ipfsAPI({ host: 'ipfs.infura.io', port: 5001, protocol: 'https' });
+const fs= require('fs');
+
 //--------------------------------------------------------------------------------------
 //!!!!!-------------------------Home route----------------------------------------------
 app.get('/',(req,res)=>{
@@ -31,6 +36,7 @@ app.post('/addUser',(req,res)=>{
                  "coordinates": [req.body.long, req.body.lat]
              }
          });
+         newUser.
         newUser.save().then(() => res.send(newUser));
     })
 
@@ -92,6 +98,7 @@ app.post('/joinChallenge',(req,res)=>{
 
 //----------------------------------------------------------------------------------
 //!!!!!!!!-------------------Confirming a video verification by verifier-----------
+
 
 
 //--------------------------Server configuration codes-------------------------------------
