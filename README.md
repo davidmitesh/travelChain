@@ -43,7 +43,7 @@ loc
 <h3>parameters:</h3>
 <br>
 cid<br>
-https://travelchain.herokuapp.com?cid=<value><br>
+https://travelchain.herokuapp.com/challenge?cid=<value><br>
   
 <h2>Route 5 : To Join a  challenge based on challenge ID</h2>
 /joinchallenge     -> Post request
