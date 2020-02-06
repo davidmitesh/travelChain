@@ -45,7 +45,7 @@ loc
 cid<br>
 https://travelchain.herokuapp.com?cid=<value><br>
   
-<h2>Route 5 : To create a new challenge</h2>
+<h2>Route 5 : To Join a  challenge based on challenge ID</h2>
 /joinchallenge     -> Post request
 <br>
 <h3>parameters:</h3>
