@@ -58,9 +58,9 @@ assignedVideos:[{
     vhash:{
         type:String
     },
-    watched:{
-        type:Boolean,
-        default:false
+    assignTime:{
+        type:Date,
+        default:Date.now
     }
 }
 ]

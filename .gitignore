@@ -4,3 +4,4 @@ npm-debug.log
 /*.env
 testfile.js
 ipfsonly.js
+upload.html

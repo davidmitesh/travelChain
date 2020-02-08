@@ -68,6 +68,19 @@ submittedVideos:[{
     },
     vhash:{
         type:String
+    },
+    verified:{
+        type:Boolean
+    },
+    uid:{
+        type:Number
+    },
+    videoURL:{
+        type:String
+    },
+    created:{
+        type:Date,
+        default:Date.now
     }
 }
 ]
