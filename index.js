@@ -36,7 +36,7 @@ app.post('/addUser',(req,res)=>{
                  "coordinates": [req.body.long, req.body.lat]
              }
          });
-         newUser.
+
         newUser.save().then(() => res.send(newUser));
     })
 
@@ -48,6 +48,7 @@ app.post('/createChallenge',(req,res)=>{
     Challenge.countDocuments({},function(err,c){
         const newChallenge=new Challenge({
             name:req.body.name,
+            creatoruid:req.body.creatoruid,
             description:req.body.description,
             "loc": {
                 "type": "Point",
@@ -93,6 +94,14 @@ app.post('/joinChallenge',(req,res)=>{
             mergedData={challenge,user}
             res.send(mergedData);
         })
+    })
+})
+
+//----------------------------------------------------------------------------------
+//!!!!!!!!-------------------Getting a user description based on Userid(uid)-----------
+app.get('/getUser',(req,res)=>{
+    User.findOne({uid:req.query.uid},(err,result)=>{
+        res.send(result);
     })
 })
 

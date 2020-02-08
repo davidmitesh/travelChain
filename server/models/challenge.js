@@ -9,6 +9,9 @@ var challengeSchema = new mongoose.Schema({
     name:{
         type:String
     },
+    creatoruid:{
+        type:Number
+    },
     description:{
         type:String
     },

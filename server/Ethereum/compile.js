@@ -22,7 +22,7 @@ var input = {
     settings: {
         outputSelection: {
             '*': {
-                '*': [ '*' ]
+                '*': [ 'abi','evm.bytecode' ]
             }
         }
     }
@@ -30,7 +30,7 @@ var input = {
 
 try{
     const output = JSON.parse(solc.compile(JSON.stringify(input)),1);
-
+     console.log(output.contracts["coin.sol"]);
     for (let contract in output.contracts["coin.sol"]) {
         fileSystem.outputJSONSync(
           path.resolve(exportPath, "coinABI.json"),

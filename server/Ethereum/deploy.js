@@ -2,7 +2,7 @@ const HDWalletProvider = require("truffle-hdwallet-provider");
 const Web3 = require("web3");
 const coininterface = require("./bin/coinABI.json");
 const coinbyte=require("./bin/coinBytecode.json")
-console.log(coininterface);
+
 //setting up provider with truffle-hdwallet-provider so that we can use a account
 //and use infura to deploy it to rinkeby test network
 
@@ -16,14 +16,30 @@ const web3 = new Web3(provider); //creating the instance of the Web3 constructor
 // console.log(web3);
 //we cannot use the async-await syntax, specially await without a async function declaration
 //so,only for this reason we are declaring a function and calling it later.
+// const deploy = async () => {
+//   const accounts = await web3.eth.getAccounts();
+//   console.log("Attempting to deploy from account", accounts[0]);
+//   const result = await new web3.eth.Contract(
+//     coininterface)
+//
+//     .deploy({ data: '0x'+coinbyte })
+//     .send({ gas: " 1000000", from: accounts[0] });
+//   console.log("Contract deployed to", result.options.address);
+// };
+// deploy();
 const deploy = async () => {
-  const accounts = await web3.eth.getAccounts();
-  console.log("Attempting to deploy from account", accounts[0]);
-  const result = await new web3.eth.Contract(
-    coininterface)
+ const accounts = await web3.eth.getAccounts();
+var myContract = new web3.eth.Contract(coininterface,  {
+    from: accounts[0], // default from address
 
-    .deploy({ data: coinbyte })
-    .send({ gas: " 1000000", from: accounts[0] });
-  console.log("Contract deployed to", result.options.address);
+    data:coinbyte // default gas price in wei, 20 gwei in this case
+});
+myContract.deploy().send({
+    from: accounts[0],
+    gas: 1500000
+}).then(function(instance){
+    console.log(instance.options.address);
+})
+// console.log(myContract.options)
 };
 deploy();
