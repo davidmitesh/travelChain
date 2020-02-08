@@ -60,7 +60,7 @@ uid->Int(User ID)<br>
 <h3>parameters:</h3>
 <br>
 uid<br>
-https://travelchain.herokuapp.com/challenge?uid=<value><br>
+https://travelchain.herokuapp.com/getUser?uid=<value><br>
 
 
 </div>
