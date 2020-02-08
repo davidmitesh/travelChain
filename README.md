@@ -20,6 +20,7 @@ verifier-> Boolean<br>
 <br>
 <h3>parameters:</h3>
 <br>
+creatoruid -> Number<br>
 name-> String<br>
 description->String<br>
 long-> Number<br>
@@ -52,6 +53,14 @@ https://travelchain.herokuapp.com/challenge?cid=<value><br>
 <br>
 cid-> Int(Challenge ID)<br>
 uid->Int(User ID)<br>
+
+<h2>Route 6 : To get a user detail based on User ID</h2>
+/getUser     -> Query Get request
+<br>
+<h3>parameters:</h3>
+<br>
+uid<br>
+https://travelchain.herokuapp.com/challenge?uid=<value><br>
 
 
 </div>
