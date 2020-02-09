@@ -20,6 +20,7 @@ verifier-> Boolean<br>
 <br>
 <h3>parameters:</h3>
 <br>
+creatoruid -> Number<br>
 name-> String<br>
 description->String<br>
 long-> Number<br>
@@ -52,6 +53,43 @@ https://travelchain.herokuapp.com/challenge?cid=<value><br>
 <br>
 cid-> Int(Challenge ID)<br>
 uid->Int(User ID)<br>
+
+<h2>Route 6 : To get a user detail based on User ID</h2>
+/getUser     -> Query Get request
+<br>
+<h3>parameters:</h3>
+<br>
+uid<br>
+https://travelchain.herokuapp.com/getUser?uid=<value><br>
+ 
+<h2>Route 7 : To upload a challenge video </h2>
+/vidUpload     -> Query Get request
+<br>
+<h3>parameters:</h3>
+<br>
+uid<br>
+cid<br>
+https://travelchain.herokuapp.com/vidUpload?uid=<value>&cid=<value><br>
+ 
+<h2>Route 8 : To confirm a challenge video by the verifier </h2>
+/verifyVideo     -> Query Get request
+<br>
+<h3>parameters:</h3>
+<br>
+vid<br>
+cid<br>
+https://travelchain.herokuapp.com/verifyVideo?vid=<value>&cid=<value><br>
+ 
+ 
+<h2>Route 9 : Getting assigned videos for a verifier </h2>
+/giveVideoUrls     -> Query Get request
+<br>
+<h3>parameters:</h3>
+<br>
+uid<br>
+https://travelchain.herokuapp.com/giveVideoUrls?uid=<value><br>
+ 
+
 
 
 </div>
