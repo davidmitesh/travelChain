@@ -69,18 +69,11 @@ https://travelchain.herokuapp.com/getUser?uid=<value><br>
 <br>
 uid<br>
 cid<br>
-```html
-<html>
-<pre>
-<form method="post" action="https://travelchain.herokuapp.com/vidUpload?uid=1&cid=1" enctype="multipart/form-data">
-        <input type="file" name="videoFile"><br>
-        <input type="submit" value="Submit">
-</form>
-</pre>
-</html>
-```
+&lt;form method="post" action="https://travelchain.herokuapp.com/vidUpload?uid=1&cid=1" enctype="multipart/form-data"&gt;
+        &lt;input type="file" name="videoFile"&gt;<br>
+        &lt;input type="submit" value="Submit"&gt;
 <br>
-https://travelchain.herokuapp.com/vidUpload?uid=<value>&cid=<value><br>
+https://travelchain.herokuapp.com/vidUpload?uid=&lt;value&gt;&cid=&lt;value&gt;<br>
  <b>Note: enctype should be strictly multipart/form-data</b>
  
 <h2>Route 8 : To confirm a challenge video by the verifier </h2>
@@ -90,6 +83,7 @@ https://travelchain.herokuapp.com/vidUpload?uid=<value>&cid=<value><br>
 <br>
 vid<br>
 cid<br>
+uid(This is the user id of user who submitted the video,not user id of verifier)<br> 
 https://travelchain.herokuapp.com/verifyVideo?vid=<value>&cid=<value><br>
  
  
