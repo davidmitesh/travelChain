@@ -47,12 +47,13 @@ cid<br>
 https://travelchain.herokuapp.com/challenge?cid=<value><br>
   
 <h2>Route 5 : To Join a  challenge based on challenge ID</h2>
-/joinchallenge     -> Post request
+/joinchallenge     -> Query Get request
 <br>
 <h3>parameters:</h3>
 <br>
 cid-> Int(Challenge ID)<br>
 uid->Int(User ID)<br>
+https://travelchain.herokuapp.com/joinChallenge?uid=<value>&cid=<value><br>
 
 <h2>Route 6 : To get a user detail based on User ID</h2>
 /getUser     -> Query Get request
