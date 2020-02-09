@@ -102,9 +102,9 @@ app.get('/challenge',(req,res)=>{
 
 //-----------------------------------------------------------------------------------------
 //!!!!!!---------------------Joining a challenge-------------------------------------------
-app.post('/joinChallenge',(req,res)=>{
-    Challenge.findOneAndUpdate({cid:req.body.cid},{$push:{joinedUsers:{uid:req.body.uid}}},(err,challenge)=>{
-        User.findOneAndUpdate({uid:req.body.uid},{$push:{joinedChallenges:{name:challenge.name,cnumber:challenge.cid}}},(err,user)=>{
+app.get('/joinChallenge',(req,res)=>{
+    Challenge.findOneAndUpdate({cid:req.query.cid},{$push:{joinedUsers:{uid:req.query.uid}}},(err,challenge)=>{
+        User.findOneAndUpdate({uid:req.query.uid},{$push:{joinedChallenges:{name:challenge.name,cnumber:challenge.cid}}},(err,user)=>{
             if (err){
                 res.send('Either challenge not found or user not found')
             }
@@ -114,6 +114,22 @@ app.post('/joinChallenge',(req,res)=>{
     })
 })
 
+
+//-------------------------------------------------------------------------------------------
+//!!!!!!-------------Getting joined challenges of a particullar user---------------
+app.get('/getJoinedChallenges',(req,res)=>{
+    User.findOne({uid:req.query.uid},(err,result)=>{
+        res.send(result.joinedChallenges);
+    })
+})
+
+//-------------------------------------------------------------------------------------------
+//!!!!!!-------------Getting completed challenges of a particullar user---------------
+app.get('/getCompletedChallenges',(req,res)=>{
+    User.findOne({uid:req.query.uid},(err,result)=>{
+        res.send(result.completedChallenges);
+    })  
+})
 //----------------------------------------------------------------------------------
 //!!!!!!!!-------------------Getting a user description based on Userid(uid)-----------
 app.get('/getUser',(req,res)=>{
@@ -147,7 +163,7 @@ app.post('/vidUpload',function(request,response){
               console.log(err);
             }
             Challenge.findOneAndUpdate({cid:request.query.cid},{$push:{submittedVideos:{vid:index,vhash:file[0].hash,verified:false,uid:request.query.uid,videoURL:streamURL+file[0].hash}}},(err,result)=>{
-                User.findOneAndUpdate({verifier:true},{$push:{assignedVideos:{vid:index,vhash:file[0].hash}}},(err,result)=>{
+                User.findOneAndUpdate({verifier:true},{$push:{assignedVideos:{vid:index,vhash:file[0].hash,uid:request.query.uid,cid:request.query.cid}}},(err,result)=>{
                     console.log(file);
                 response.send(result);
                 })
@@ -162,8 +178,17 @@ app.post('/vidUpload',function(request,response){
 //----------------------------------------------------------------------------------
 //!!!!!!!!-------------------Confirming a video verification by verifier-----------
 app.get('/verifyVideo',(req,res)=>{
-    Challenge.findOneAndUpdate({cid:req.query.cid,"submittedVideos.vid":req.query.vid},{$set:{"submittedVideos.$.verified":true}},(err,result)=>{
-        res.send(result);
+    Challenge.findOneAndUpdate({cid:req.query.cid,"submittedVideos.vid":req.query.vid},{$set:{"submittedVideos.$.verified":true},$push:{completedUsers:{uid:req.query.userid,tokentransfer:false}}},(err,result)=>{
+        var cname=result.name;
+        var prize=result.tokenprice;
+        User.findOneAndUpdate({uid:req.query.verifierid,"assignedVideos.vid":req.query.vid},{$set:{"assignedVideos.$.viewed":true}},(err,result)=>{
+            // console.log(result.tokenprice)
+            User.findOneAndUpdate({uid:req.query.userid},{$push:{completedChallenges:{name:cname,cid:req.query.cid}},$pop:{joinedChallenges:1},$inc:{tokens:prize}},(err,result)=>{
+                res.send(result);
+            })
+
+        })
+
     })
 })
 

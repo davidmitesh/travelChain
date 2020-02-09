@@ -34,7 +34,7 @@ var userSchema = new mongoose.Schema({
         name:{
             type:String
         },
-        cnumber:{
+        cid:{
             type:Number
         }
     }
@@ -43,7 +43,7 @@ completedChallenges:[{
     name:{
         type:String
     },
-    cnumber:{
+    cid:{
         type:Number
     }
 }
@@ -61,6 +61,16 @@ assignedVideos:[{
     assignTime:{
         type:Date,
         default:Date.now
+    },
+    viewed:{
+        type:Boolean,
+        default:false
+    },
+    uid:{
+        type:Number
+    },
+    cid:{
+        type:Number
     }
 }
 ]
