@@ -69,10 +69,13 @@ https://travelchain.herokuapp.com/getUser?uid=<value><br>
 <br>
 uid<br>
 cid<br>
+```
 <form method="post" action="https://travelchain.herokuapp.com/vidUpload?uid=1&cid=1" enctype="multipart/form-data">
         <input type="file" name="videoFile"><br>
         <input type="submit" value="Submit">
-    </form><br>
+</form>
+```
+<br>
 https://travelchain.herokuapp.com/vidUpload?uid=<value>&cid=<value><br>
  <b>Note: enctype should be strictly multipart/form-data</b>
  
