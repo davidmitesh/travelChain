@@ -96,6 +96,13 @@ https://travelchain.herokuapp.com/verifyVideo?vid=<value>&cid=<value><br>
 uid<br>
 https://travelchain.herokuapp.com/giveVideoUrls?uid=<value><br>
  
+<h2>Route 10 :Getting joined challenges of a particullar user </h2>
+/getMyChallenges   -> Query Get request
+<br>
+<h3>parameters:</h3>
+<br>
+uid<br>
+https://travelchain.herokuapp.com/getMyChallenges?uid=<value><br> </h2>
 
 
 
