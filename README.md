@@ -63,13 +63,18 @@ uid<br>
 https://travelchain.herokuapp.com/getUser?uid=<value><br>
  
 <h2>Route 7 : To upload a challenge video </h2>
-/vidUpload     -> Query Get request
+/vidUpload     -> Query post request
 <br>
 <h3>parameters:</h3>
 <br>
 uid<br>
 cid<br>
+<form method="post" action="https://travelchain.herokuapp.com/vidUpload?uid=1&cid=1" enctype="multipart/form-data">
+        <input type="file" name="videoFile"><br>
+        <input type="submit" value="Submit">
+    </form><br>
 https://travelchain.herokuapp.com/vidUpload?uid=<value>&cid=<value><br>
+ <b>Note: enctype should be strictly multipart/form-data</b>
  
 <h2>Route 8 : To confirm a challenge video by the verifier </h2>
 /verifyVideo     -> Query Get request
