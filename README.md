@@ -148,7 +148,7 @@ https://travelchain.herokuapp.com/getMyChallenges?uid=<value><br> </h2>
 uid<br>
 https://travelchain.herokuapp.com/getCompletedChallenges?uid=<value><br> </h2>
 
-<h2>Route 11 : To signin a user</h2>
+<h2>Route 12 : To signin a user</h2>
 /challenge     -> Query Get request
 <br>
 <h3>parameters:</h3><br>
