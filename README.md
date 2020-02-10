@@ -49,6 +49,8 @@ lat-> Number<br>
 verifier-> Boolean<br>
 <b>Note: Verifier indicates whether the user is a verifier or not!</b>
 
+
+
 <h2>Route 2 : To create a new challenge</h2>
 /createChallenge     -> Post request
 <br>
@@ -145,6 +147,14 @@ https://travelchain.herokuapp.com/getMyChallenges?uid=<value><br> </h2>
 <br>
 uid<br>
 https://travelchain.herokuapp.com/getCompletedChallenges?uid=<value><br> </h2>
+
+<h2>Route 11 : To signin a user</h2>
+/challenge     -> Query Get request
+<br>
+<h3>parameters:</h3><br>
+name<br>
+password<br>
+https://travelchain.herokuapp.com/signIn?name=<value>&password=<value><br>
 
 
 
