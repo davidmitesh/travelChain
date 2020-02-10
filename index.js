@@ -15,6 +15,8 @@ const ipfs = new ipfsAPI({ host: 'ipfs.infura.io', port: 5001, protocol: 'https'
 const fs= require('fs');
 const streamURL="https://gateway.ipfs.io/ipfs/";
 
+//---------------------------Ethereum blockchain related section----------
+//!!!!!!!!!!!!!-----------------------------------!!!!!!!!!!!!!!!!!!!!!!!!
 //-------------------------------------Use of middlewares-----------------------------------------------
 //!!!!!!!!!!!!!!!!!!!!!-------------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 app.use(bodyParser.json());
@@ -25,12 +27,6 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-
-
-
-
-
-
 
 
 //--------------------------------------------------------------------------------------
@@ -45,6 +41,7 @@ app.post('/addUser',(req,res)=>{
     User.countDocuments({},function(err,c){
         const newUser = new User({
             name: req.body.name,
+            password:req.body.password,
             gender:req.body.gender,
              verifier:req.body.verifier,
              uid:c+1,
@@ -57,6 +54,14 @@ app.post('/addUser',(req,res)=>{
         newUser.save().then(() => res.send(newUser));
     })
 
+});
+
+//---------------------------Signing in a user------------------------------------
+//!!!!!!!!!!!!-------------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!
+app.get('/signIn',(req,res)=>{
+    User.findOne({name:req.query.name,password:req.query.password},(err,result)=>{
+        res.send(result);
+    });
 });
 
 //-------------------------------------------------------------------------------------------
@@ -128,7 +133,7 @@ app.get('/getJoinedChallenges',(req,res)=>{
 app.get('/getCompletedChallenges',(req,res)=>{
     User.findOne({uid:req.query.uid},(err,result)=>{
         res.send(result.completedChallenges);
-    })  
+    })
 })
 //----------------------------------------------------------------------------------
 //!!!!!!!!-------------------Getting a user description based on Userid(uid)-----------

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/cruzelx/travelChain#readme",
   "dependencies": {
+    "@truffle/contract": "^4.1.8",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "ethers": "^4.0.43",

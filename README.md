@@ -47,12 +47,13 @@ cid<br>
 https://travelchain.herokuapp.com/challenge?cid=<value><br>
   
 <h2>Route 5 : To Join a  challenge based on challenge ID</h2>
-/joinchallenge     -> Post request
+/joinchallenge     -> Query Get request
 <br>
 <h3>parameters:</h3>
 <br>
 cid-> Int(Challenge ID)<br>
 uid->Int(User ID)<br>
+https://travelchain.herokuapp.com/joinChallenge?uid=<value>&cid=<value><br>
 
 <h2>Route 6 : To get a user detail based on User ID</h2>
 /getUser     -> Query Get request
@@ -63,13 +64,18 @@ uid<br>
 https://travelchain.herokuapp.com/getUser?uid=<value><br>
  
 <h2>Route 7 : To upload a challenge video </h2>
-/vidUpload     -> Query Get request
+/vidUpload     -> Query post request
 <br>
 <h3>parameters:</h3>
 <br>
 uid<br>
 cid<br>
-https://travelchain.herokuapp.com/vidUpload?uid=<value>&cid=<value><br>
+&lt;form method="post" action="https://travelchain.herokuapp.com/vidUpload?uid=1&cid=1" enctype="multipart/form-data"&gt;
+        &lt;input type="file" name="videoFile"&gt;<br>
+        &lt;input type="submit" value="Submit"&gt;
+<br>
+https://travelchain.herokuapp.com/vidUpload?uid=&lt;value&gt;&cid=&lt;value&gt;<br>
+ <b>Note: enctype should be strictly multipart/form-data</b>
  
 <h2>Route 8 : To confirm a challenge video by the verifier </h2>
 /verifyVideo     -> Query Get request
@@ -78,6 +84,7 @@ https://travelchain.herokuapp.com/vidUpload?uid=<value>&cid=<value><br>
 <br>
 vid<br>
 cid<br>
+uid(This is the user id of user who submitted the video,not user id of verifier)<br> 
 https://travelchain.herokuapp.com/verifyVideo?vid=<value>&cid=<value><br>
  
  
@@ -89,6 +96,21 @@ https://travelchain.herokuapp.com/verifyVideo?vid=<value>&cid=<value><br>
 uid<br>
 https://travelchain.herokuapp.com/giveVideoUrls?uid=<value><br>
  
+<h2>Route 10 :Getting joined challenges of a particullar user </h2>
+/getJoinedChallenges   -> Query Get request
+<br>
+<h3>parameters:</h3>
+<br>
+uid<br>
+https://travelchain.herokuapp.com/getMyChallenges?uid=<value><br> </h2>
+
+<h2>Route 11 :Getting completed challenges of a particullar user </h2>
+/getCompletedChallenges   -> Query Get request
+<br>
+<h3>parameters:</h3>
+<br>
+uid<br>
+https://travelchain.herokuapp.com/getCompletedChallenges?uid=<value><br> </h2>
 
 
 
