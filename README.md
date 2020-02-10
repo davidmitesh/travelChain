@@ -1,4 +1,8 @@
 # travelChain
+
+<h3>The Routes are pulblished as Postman Documentation.</h3>
+ Link to the Documentation: https://documenter.getpostman.com/view/4310517/SWTK3ZFU?version=latest
+ 
 <div>
 <u>Routes for API</u><br>
  home location: https://travelchain.herokuapp.com/
