@@ -3,6 +3,14 @@
 <p>travelChain is the cross-platform mobile application built using google's flutter on top of IPFS and Ethereum blockchain. This project is built for Spirathon 2020 organized by Spiralogics. This GitHub repo contains code of  the backend server for the application.
 </p>
 
+<h3>Server Details</h3>
+<h4><b>NodeJS server for API is hosted in:</b></h4>
+<h4><u>Heroku</u></h4>
+<img src="https://res.cloudinary.com/practicaldev/image/fetch/s--K2q0A5SX--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/2elgd5zp07wkeilkna63.png">
+
+<h4><b>MongoDB Database is hosted in:</b></h4>
+<h4><u>MongoDB Cloud</u></h4>
+<img src="https://severalnines.com/sites/default/files/mongodb_cloud.png">
 <h3>Technology stack for backend</h3>
 
 <h4><b> Nodejs</b></h4>
