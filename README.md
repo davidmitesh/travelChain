@@ -1,5 +1,33 @@
 # travelChain
 
+<p>travelChain is the cross-platform mobile application built using google's flutter on top of IPFS and Ethereum blockchain. This project is built for Spirathon 2020 organized by Spiralogics. This GitHub repo contains code of  the backend server for the application.
+</p>
+
+<h3>Technology stack for backend</h3>
+<img src="" height="200" width="400">
+<h4><b> Nodejs</b></h4>
+<img src="https://miro.medium.com/max/1200/1*m5RYM_Wkj4LsZewpigV5tg.jpeg " height="200" width="400">
+<h4><b> Solidity</b></h4>
+
+<img src="https://cointral.com/wp-content/uploads/2019/11/solidity-nedir.png" height="200" width="400">
+<h4><b>Ethereum ropsten Network</b></h4>
+
+<img src="https://s.yimg.com/ny/api/res/1.2/79GZvpsBiB0w.4UMxQEijw--~A/YXBwaWQ9aGlnaGxhbmRlcjtzbT0xO3c9ODAw/http://media.zenfs.com/en-US/homerun/coin_rivet_596/45607ac1ecdfb82f720db97b79887702" height="200" width="400">
+<h4><b> MongoDB</b></h4>
+
+<img src="https://i.pcmag.com/imagery/reviews/02Q6yxveinggAu3PomearaV-7.fit_scale.size_2698x1517.jpg" height="200" width="400">
+<h4><b> IPFS</b></h4>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png" height="200" width="400">
+<h4><b> TruffleJS</b></h4>
+
+<img src="https://truffleframework.com/img/favicons/truffle-share.png" height="200" width="400">
+<h4><b> Python(sklearn,scipy,numpy)</b></h4>
+
+<img src="https://www.vizteams.com/wp-content/uploads/2013/08/python-logo-master.png" height="200" width="400">
+
+<h1>API Documentation</h1>
+
 <h3>The Routes are pulblished as Postman Documentation.</h3>
  Link to the Documentation: https://documenter.getpostman.com/view/4310517/SWTK3ZFU?version=latest
  
