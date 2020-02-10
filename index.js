@@ -17,6 +17,8 @@ const streamURL="https://gateway.ipfs.io/ipfs/";
 
 //---------------------------Ethereum blockchain related section----------
 //!!!!!!!!!!!!!-----------------------------------!!!!!!!!!!!!!!!!!!!!!!!!
+var {getOwner,mintBalance,getBalance,sendBalance}=require('./server/Ethereum/index.js');
+
 //-------------------------------------Use of middlewares-----------------------------------------------
 //!!!!!!!!!!!!!!!!!!!!!-------------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 app.use(bodyParser.json());
