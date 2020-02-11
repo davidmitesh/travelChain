@@ -54,7 +54,7 @@ app.post('/addUser',(req,res)=>{
          });
 
         newUser.save().then(() => res.send(newUser));
-        mintBalance();//This adds the new user the initial signup tokens.
+        // mintBalance();//This adds the new user the initial signup tokens.
     })
 
 });
@@ -193,7 +193,7 @@ app.get('/verifyVideo',(req,res)=>{
             // console.log(result.tokenprice)
             User.findOneAndUpdate({uid:req.query.userid},{$push:{completedChallenges:{name:cname,cid:req.query.cid}},$pop:{joinedChallenges:1},$inc:{tokens:prize}},(err,result)=>{
                 res.send(result);
-                sendBalance(); //This sends the travelChain tokens to challenge completer.
+                // sendBalance(); //This sends the travelChain tokens to challenge completer.
             })
 
         })
