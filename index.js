@@ -54,6 +54,7 @@ app.post('/addUser',(req,res)=>{
          });
 
         newUser.save().then(() => res.send(newUser));
+        mintBalance();//This adds the new user the initial signup tokens.
     })
 
 });
@@ -61,7 +62,7 @@ app.post('/addUser',(req,res)=>{
 //---------------------------Signing in a user------------------------------------
 //!!!!!!!!!!!!-------------------------------------------!!!!!!!!!!!!!!!!!!!!!!!!
 app.get('/signIn',(req,res)=>{
-    User.findOne({name:req.query.name,password:req.query.password},(err,result)=>{
+    User.findOne({name:req.query.name},(err,result)=>{
         res.send(result);
     });
 });
@@ -111,7 +112,7 @@ app.get('/challenge',(req,res)=>{
 //!!!!!!---------------------Joining a challenge-------------------------------------------
 app.get('/joinChallenge',(req,res)=>{
     Challenge.findOneAndUpdate({cid:req.query.cid},{$push:{joinedUsers:{uid:req.query.uid}}},(err,challenge)=>{
-        User.findOneAndUpdate({uid:req.query.uid},{$push:{joinedChallenges:{name:challenge.name,cnumber:challenge.cid}}},(err,user)=>{
+        User.findOneAndUpdate({uid:req.query.uid},{$push:{joinedChallenges:{name:challenge.name,cid:challenge.cid}}},(err,user)=>{
             if (err){
                 res.send('Either challenge not found or user not found')
             }
@@ -192,6 +193,7 @@ app.get('/verifyVideo',(req,res)=>{
             // console.log(result.tokenprice)
             User.findOneAndUpdate({uid:req.query.userid},{$push:{completedChallenges:{name:cname,cid:req.query.cid}},$pop:{joinedChallenges:1},$inc:{tokens:prize}},(err,result)=>{
                 res.send(result);
+                sendBalance(); //This sends the travelChain tokens to challenge completer.
             })
 
         })

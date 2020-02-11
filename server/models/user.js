@@ -39,7 +39,8 @@ var userSchema = new mongoose.Schema({
         },
         cid:{
             type:Number
-        }
+        },
+        
     }
 ],
 completedChallenges:[{
